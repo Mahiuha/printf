@@ -3,7 +3,7 @@
 /**
 * _putstring - prints a string
 * @s: the pointer passed to this
-*
+* 
 * Description: puts the string and returns the length.
 * Return: the string length
 */
