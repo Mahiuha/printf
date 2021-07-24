@@ -3,7 +3,7 @@
 /**
 * _strlen - a string length function
 * @s: the string pointer passed to us
-*
+* 
 * Description: we want the length minus the null term
 * Return: the count number
 */
