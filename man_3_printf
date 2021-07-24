@@ -1,0 +1,47 @@
+.\" Manpage for _printf
+.TH man 1 "27 July 2018" "1.0" "_printf man page"
+.SH NAME
+.B _printf
+- format and print data
+.SH SYNOPSIS
+.B _printf
+.I FORMAT
+[
+.I ARGUMENT
+]...
+
+.B _printf
+.I OPTION
+
+.SH DESCRIPTION
+
+Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
+
+FORMAT controls the output. Interpreted sequences:
+
+% - Each conversion specifier is prefixed by the
+.B %
+character
+.TP
+
+Conversion specifiers:
+
+c - print a single character
+
+s - print a string of characters
+
+d - print a integer number of base 10
+
+i - print a integer number of base 10
+
+% - print a single % character
+
+b - print a number in binary
+
+r - print a string in reverse
+
+R - print a string in ROT13 code
+.SH ERRORS
+No known errors
+.SH AUTHORS
+Nicole Swanson, Bryan Leung
