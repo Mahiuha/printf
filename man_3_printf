@@ -1,92 +1,47 @@
-.TH man 3 _PRINTF "19 JULY 2020" "Holberton School"
+.\" Manpage for _printf
+.TH man 1 "27 July 2018" "1.0" "_printf man page"
 .SH NAME
-.B _Printf
-- _Printf The functions in the _printf family produce output according to a format as described below.
+.B _printf
+- format and print data
 .SH SYNOPSIS
-#include "holberton.h"
-.NM _printf Function with one mandatory argument FORMAT.
-int _printf(const char *format, ...);
+.B _printf
+.I FORMAT
+[
+.I ARGUMENT
+]...
+
+.B _printf
+.I OPTION
+
 .SH DESCRIPTION
-The functions in the _printf family produce output according to a format as described below. The functions and write output to stdout; write output to the given output stream; and write to the character string.
-.SH Return Value
-Upon successful return, these functions return the number of characters printe(excluding the null byte used to end output to strings).
-.SH Format of the format string
-The format string is a character string, beginning and ending in its initial shift state, if any. The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; an conversion specifications, each of which results in fetching zero or more subsequent arguments. Each conversion specification is introduced by the character %, and ends with a conversion specifier. In between there may be (in this order zero or more flags, an optional minimum field width, an optional precision an an optional length modifier.
-.SH Conversion specifiers.
-The format string is a character string, beginning and ending in its initial shift state, if any.
-.SH %
-The character % is followed by zero or more of the following flags:
-.SH c
-Print a character.
-.SH i
-Print a single integer.
-.SH d
-Print a decimal number.
-.SH s
-Print a string.
-.SH b
-Print a binary.
-.SH r
-Print reverse.
-.SH R
-Print ROT13
-.SH U
-Print an unsigned number
-.SH o
-Print Octal
-.SH x X
-Print hexadecimal
-.SH P
-Print address of a pinter
-.SH EXAMPLES
-Some examples of _printf
 
-_printf("String:[%s]\n", "I am a string !");
-.PP
-String:[I am a string !]
+Print ARGUMENT(s) according to FORMAT, or execute according to OPTION:
 
-len = _printf("Let's try to printf a simple sentence.\n");
-.PP
-Length:[39, 39]
+FORMAT controls the output. Interpreted sequences:
 
-_printf("Negative:[%d]\n", -762534);
-.PP
-Negative:[-762534]
+% - Each conversion specifier is prefixed by the
+.B %
+character
+.TP
 
-_printf("Unsigned:[%u]\n", ui);
-.PP
-Unsigned:[2147484671]
+Conversion specifiers:
 
-_printf("Unsigned octal:[%o]\n", ui);
-.PP
-Unsigned octal:[20000001777]
+c - print a single character
 
-_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-.PP
-Unsigned hexadecimal:[800003ff, 800003FF]
+s - print a string of characters
 
-_printf("Character:[%c]\n", 'H');
-.PP
-Character:[H]
+d - print a integer number of base 10
 
-_printf("Address:[%p]\n", addr);
-.PP
-Address:[0x7ffe637541f0]
+i - print a integer number of base 10
 
-len = _printf("Percent:[%%]\n");
-.PP
-Percent:[%]
+% - print a single % character
 
-_printf("Unknown:[%r]\n");
-.PP
-Len:[12]
+b - print a number in binary
 
-.SH SEE ALSO
-printf(), scanf(), fprintf(), sprintf(), vfprintf()
+r - print a string in reverse
 
+R - print a string in ROT13 code
+.SH ERRORS
+No known errors
 .SH AUTHORS
-
-.NM
-Diana Sofia Garcia - https://github.com/Sofiag8
-
-Steffany Naranjo Vargas - https://github.com/steffanynaranjov
+Nicole Swanson, Bryan Leung
