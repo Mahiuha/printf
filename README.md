@@ -2,7 +2,7 @@
 
 <p>Write your own <code>printf</code> function.</p>
 
-<p><img src="https://4.bp.blogspot.com/-YFU-CMWVfqk/W2x8VqlgbOI/AAAAAAAAAFY/mMRxSjYh3_0Zayef-2MlDKoIyEjIynzUQCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-08-09%2B15-24-31.png" /></p>
+![Screenshot from 2021-07-26 23-05-46](https://user-images.githubusercontent.com/35099243/127051875-7907e6f5-6c5d-4c03-9a2c-84aae2954f66.png)
 
 <h2><strong>Description</strong></h2>
 
