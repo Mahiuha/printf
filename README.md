@@ -1,4 +1,4 @@
-<h1 class="gap">0x11. C - printf</h1>
+<h1 class="gap">0x11. C - printf.</h1>
 
 <p>Write your own <code>printf</code> function.</p>
 
@@ -241,3 +241,8 @@ ADVANCED TASKS
 </h4>
 
 <p>All the above options work well together.</p>
+
+
+# Authors.
+
+**Joseph Mahiuha** and **Hezbon Oduor.**
