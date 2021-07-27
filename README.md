@@ -6,7 +6,7 @@
 
 <h2><strong>Description</strong></h2>
 
-<p>The <strong>printf project</strong>was made for <a href="https://github.com/Mahiuha">Joseph Mahiuha</a> and <a href="https://github.com/Hezbon12">Hezbon Oduol</a>. Students of <a href="https://www.alxafrica.com/"> ALX</a> For this project we have some instruction that you will see in this README.</p> 
+<p>The <strong>printf project </strong>was made by <a href="https://github.com/Mahiuha">Joseph Mahiuha</a> and <a href="https://github.com/Hezbon12">Hezbon Oduol</a>. Students of <a href="https://www.alxafrica.com/"> ALX</a> For this project we have some instruction that you will see in this README.</p> 
 
 <p><strong>Read or watch</strong>:</p>
 
