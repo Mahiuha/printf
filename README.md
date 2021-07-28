@@ -1,12 +1,12 @@
-<h1 class="gap">0x11. C - printf</h1>
+<h1 class="gap">0x11. C - printf.</h1>
 
 <p>Write your own <code>printf</code> function.</p>
 
-<p><img src="https://4.bp.blogspot.com/-YFU-CMWVfqk/W2x8VqlgbOI/AAAAAAAAAFY/mMRxSjYh3_0Zayef-2MlDKoIyEjIynzUQCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-08-09%2B15-24-31.png" /></p>
+![Screenshot from 2021-07-26 23-05-46](https://user-images.githubusercontent.com/35099243/127051875-7907e6f5-6c5d-4c03-9a2c-84aae2954f66.png)
 
 <h2><strong>Description</strong></h2>
 
-<p>The <strong>printf project</strong>was made for <a href="https://github.com/Mahiuha">Joseph Mahiuha</a> and <a href="https://github.com/Hezbon12">Hezbon Oduol</a>. Students of <a href="https://www.alxafrica.com/"> ALX</a> For this project we have some instruction that you will see in this README.</p> 
+<p>The <strong>printf project </strong>was made by <a href="https://github.com/Mahiuha">Joseph Mahiuha</a> and <a href="https://github.com/Hezbon12">Hezbon Oduol</a>. Students of <a href="https://www.alxafrica.com/"> ALX</a> For this project we have some instruction that you will see in this README.</p> 
 
 <p><strong>Read or watch</strong>:</p>
 
@@ -241,3 +241,8 @@ ADVANCED TASKS
 </h4>
 
 <p>All the above options work well together.</p>
+
+
+# Authors.
+
+**Joseph Mahiuha** and **Hezbon Oduor.**
