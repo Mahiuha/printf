@@ -4,7 +4,7 @@
 /**
 * print_number - print integer
 * @n: integer to print
-* 
+*
 * Description: this is the advance problem from a nearlier project
 *	this problem starts from the very first digit or index
 *	and then prints till the end is reached

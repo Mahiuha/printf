@@ -5,10 +5,10 @@
 * @c: the character passed that was after %
 * @count: the number of count thus far. it will be incremented
 * @argu: the va_list that is passed to us so we can va_arg it
-* 
+*
 * Description: NO I WILL NOT USE STRUCTS LIKE EVERYONE ELSE
 * Return: the count total
-* 
+*
 * A: we passed that character after the %. use it as switch condition
 * B: if it is a char, we put char and plus 1 count
 * C: if it is a string we check if null, if so then we put null and plus 6

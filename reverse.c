@@ -1,25 +1,21 @@
 #include "holberton.h"
+
 /**
- * print_string_rev - print a sting reversed.
- * @va: arguments.
- * Return: lenght of string.
- */
-int print_string_rev(va_list va)
+* rev_str - reverse string
+* @s: string to reverse
+* Return: count of characers printed
+*/
+int  rev_str(char *s)
 {
-	char *s;
-	char nu[] = "(null)";
-	int i, lenght;
+/* initialize a index counter */
+	int i, j = 0;
 
-	s = va_arg(va, char *);
-
-	if (s == NULL)
+	while (s[j])
+		j++;
+/* start i at length of string, decrement till 0 */
+	for (i = j - 1; i >= 0; i--)
 	{
-		for (i = 0; nu[i] != '\0'; i++)
-			_putchar(nu[i]);
-		return (6);
-	}
-	lenght = _strlen(s);
-	for (i = (lenght - 1); i >= 0; i--)
 		_putchar(s[i]);
-	return (lenght);
+	}
+	return (j);
 }

@@ -3,7 +3,7 @@
 /**
 * dec_to_binary - converts a dec to binary
 * @n: the number bassed to us
-* 
+*
 * Description : does stuff. uses recursion
 * Return: recursion
 */
