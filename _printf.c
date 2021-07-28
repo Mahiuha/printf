@@ -1,144 +1,127 @@
 #include "holberton.h"
-#include <stdarg.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 /**
-* copy_to_buffer - Copies the given character over to the buffer
-* @formatter: Character to copy over
-* @buffer: Buffer being copied to
-* @buflenptr: Pointer to the length of the buffer, the number of
-* characters in the buffer
-* @bufposptr: Pointer to the position in the buffer
-*
-* Return: Number of characters copied to buffer
+* no_struct - a helper function that is called when there is a %something
+* @c: the character passed that was after %
+* @count: the number of count thus far. it will be incremented
+* @argu: the va_list that is passed to us so we can va_arg it
+* 
+* Description: NO I WILL NOT USE STRUCTS LIKE EVERYONE ELSE
+* Return: the count total
+* 
+* A: we passed that character after the %. use it as switch condition
+* B: if it is a char, we put char and plus 1 count
+* C: if it is a string we check if null, if so then we put null and plus 6
+*	we also put string if not null and count the stuff
+* D: if it is an i, do the same as a d. so we put i and let it cascade down
+*	if the number is 0 then we add 1 to count and put a 0
+*	else we just print the number
+* E: if it was a % then we just plus 1 and put the %
+* F: Binary. havent got it to work yet. it should.
+* G: if it is r, call rev_str function to print string in reverse.
+* H: the default is to just print the %letter and yea...
 */
-int copy_to_buffer(char formatter, char buffer[],
-		     int *buflenptr, int *bufposptr)
+
+int no_struct(char c, int count, va_list argu)
 {
-	int chars;
+	int j;
+	char *s;
 
-	chars = 0;
-	buffer[*bufposptr] = formatter;
-	*bufposptr += 1;
-	*buflenptr += 1;
-	if (*buflenptr == 1024)
+	switch (c)/* A */
 	{
-		write_buffer(buffer, buflenptr, bufposptr);
+		case 'c':/* B */
+			j = va_arg(argu, int);
+			count += _putchar(j);
+			break;
+		case 's':/* C */
+			s = va_arg(argu, char *);
+			if (!s)
+			{
+				_putchar('(');
+				_putchar('n');
+				_putchar('u');
+				_putchar('l');
+				_putchar('l');
+				_putchar(')');
+				count += 6;
+			}
+			else
+				count += _putstring(s);
+			break;
+		case 'i':/* D */
+		case 'd':
+			j = va_arg(argu, int);
+			if (!j)
+			{
+				count++;
+				_putchar('0');
+			}
+			else
+				count += print_number(j);
+			break;
+		case '%':/* E */
+			count += _putchar('%');
+			break;
+		case 'b':/* F */
+			j = va_arg(argu, int);
+			count += dec_to_binary(j);
+			break;
+		case 'r': /* G */
+			s = va_arg(argu, char *);
+			count += rev_str(s);
+			break;
+		case 'R': /* H */
+			s = va_arg(argu, char *);
+			count += rot13(s);
+			break;
+		default:/* H */
+			count += 2;
+			_putchar('%');
+			_putchar(c);
 	}
-	chars++;
-	return (chars);
-}
-
-
-/**
-* check_conversion - Checks formatter character to see if
-* it's a conversion specifier
-* @formatter: The format character being checked
-* @conversions: Struct holding conversion specifiers & function pointers to
-* @appropriate functions for corresponding conversion specifier
-* @buffer: Buffer needed to copy to when calling function
-* @buflenptr: Pointer to the length of the buffer
-* @bufposptr: Pointer to the position within the buffer
-* @print_this: va_list holding all given arguments to _printf function
-*
-* Return: Return the number of characters copied to buffer if a
-* function is called, 0 if no function is called
-*/
-int check_conversion(char formatter, char_funcs_t conversions[], char buffer[],
-		     int *buflenptr, int *bufposptr, va_list print_this)
-{
-	int j, chars;
-
-	chars = 0;
-	for (j = 0; j < 13; j++)
-	{
-		if (formatter == *conversions[j].c)
-		{
-			chars += conversions[j].f(print_this, buffer, buflenptr,
-						  bufposptr);
-			return (chars);
-		}
-	}
-	return (0);
-}
-/**
-* formatPrinter - finds the formatters function and prints its arguement
-* @format: The format character being checked
-* @conversions: Struct holding conversion specifiers & function pointers to
-* appropriate functions for corresponding conversion specifier
-* @buffer: Buffer needed to copy to when calling function
-* @buflenptr: Pointer to the length of the buffer
-* @bufposptr: Pointer to the position within the buffer
-* @print_this: va_list holding all given arguments to _printf function
-*
-* Return: Return the number of characters copied to buffer if a
-* function is called, 0 if no function is called
-*/
-int formatPrinter(const char *format, va_list print_this, char buffer[],
-		  int *buflenptr, int *bufposptr, char_funcs_t conversions[])
-{
-	int i, chars, print;
-
-	chars = 0;
-	for (i = 0; format[i] != '\0' && format != NULL; i++)
-	{
-		if (format[i] == '%')
-		{
-			i++;
-			print = check_conversion(format[i], conversions,
-						 buffer, buflenptr, bufposptr,
-						 print_this);
-			if (print == 0)
-				chars += copy_to_buffer(format[i], buffer,
-							buflenptr, bufposptr);
-			chars += print;
-		}
-		else
-		{
-			chars += copy_to_buffer(format[i], buffer, buflenptr,
-						bufposptr);
-		}
-	}
-	return (chars);
+	return (count);
 }
 
 /**
-* _printf - Print out a formatted string
-* @format: Format of the string
-* Return: Number of characters printed
+* _printf - our own printf function
+* @format: A character string, composed of zero of more directives
+*
+* Description: Writes a formatted string to the standard output
+* Return: an integer. The number of characters printed excluding the null byte
+* A: if format is null then we return -1
+* B: as long as format of index is not null, we increment
+* C: if the index is not a percentage then we puts and count++
+* D: ERASED THE DEEEE
+* E: if it is not a null then we scan that letter. pass it into helper func
+* F: its prob a null so we return -1
 */
+
 int _printf(const char *format, ...)
 {
-	va_list print_this;
-	char buffer[1024];
-	int chars, buflen, bufpos, *buflenptr, *bufposptr;
-	char_funcs_t conversions[] = {{"c", print_c},
-				      {"s", print_s},
-				      {"i", print_int},
-				      {"d", print_int},
-				      {"u", print_u},
-				      {"o", print_o},
-				      {"x", print_hex},
-				      {"X", print_heX},
-				      {"b", print_b},
-				      {"S", print_S},
-				      {"r", print_r},
-				      {"R", print_R},
-				      {"p", print_p},
-	};
+	int i = 0;
+	int count = 0;
+	va_list argu;
 
-	initialize_buffer(buffer);
-	chars = bufpos = 0;
-	buflen = 1;
-	buflenptr = &buflen;
-	bufposptr = &bufpos;
-	va_start(print_this, format);
-	if (format == NULL || print_this == NULL)
-		return (chars);
-	chars = formatPrinter(format, print_this, buffer,
-			      buflenptr, bufposptr, conversions);
-	write_buffer(buffer, buflenptr, bufposptr);
-	va_end(print_this);
-	return (chars);
+	va_start(argu, format);
+
+	if (!format)/* A */
+		return (-1);
+
+	for (i = 0; format[i]; i++)/* B */
+	{
+		if (format[i] != '%')/* C */
+		{
+			count++;
+			_putchar(format[i]);
+		}
+		else if (format[i + 1])/* E */
+		{
+			i++;
+			count = no_struct(format[i], count, argu);
+		}
+		else/* F */
+			return (-1);
+	}
+	va_end(argu);
+	return (count);
 }
